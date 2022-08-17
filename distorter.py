@@ -54,7 +54,7 @@ def distorter(vn, format, DISTORT_PERCENTAGE=60, SOUND_FILTER_FREQUENCY=10, SOUN
     cmd = f"/bin/sh/magick {curFramePath}\
       -liquid-rescale {100-DISTORT_PERCENTAGE}x{100-DISTORT_PERCENTAGE}%!\
       -resize {videoSize[0]}x{videoSize[1]}\! {resFramePath}"
-    exitCode, cmdOutput = subprocess.getstatusoutput(cmd, shell=True)
+    exitCode, cmdOutput = subprocess.getstatusoutput(cmd)
     if exitCode != 0:
       raise os.error(f"Error while distorting frame {i}/{nbFrames}: " + cmdOutput)
   
