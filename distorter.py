@@ -51,12 +51,13 @@ def distorter(vn, format, DISTORT_PERCENTAGE=60, SOUND_FILTER_FREQUENCY=10, SOUN
     #print(f'{i}/{nbFrames}', end="\r")
     curFramePath = os.path.join(framesPath, elem)
     resFramePath = os.path.join(distortedFramesPath, elem)
-    cmd = f"/bin/sh/magick {curFramePath}\
+    cmd = f"/usr/local/bin/magick {curFramePath}\
       -liquid-rescale {100-DISTORT_PERCENTAGE}x{100-DISTORT_PERCENTAGE}%!\
       -resize {videoSize[0]}x{videoSize[1]}\! {resFramePath}"
     exitCode, cmdOutput = subprocess.getstatusoutput(cmd)
     if exitCode != 0:
-      raise os.error(f"Error while distorting frame {i}/{nbFrames}: " + cmdOutput)
+      raise os.error(f"Error while distorting frame {i}/{nbFrames}: " + cmdOutput + subprocess.run("type magick", stdout=subprocess.PIPE).decode("utf-8'"))
+)
   
   # Assembling frames back into a video
   #print('Creating video...')
