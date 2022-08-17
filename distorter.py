@@ -56,7 +56,7 @@ def distorter(vn, format, DISTORT_PERCENTAGE=60, SOUND_FILTER_FREQUENCY=10, SOUN
       -resize {videoSize[0]}x{videoSize[1]}\! {resFramePath}"
     exitCode, cmdOutput = subprocess.getstatusoutput(cmd)
     if exitCode != 0:
-      raise os.error(f"Error while distorting frame {i}/{nbFrames}: " + cmdOutput + subprocess.run("type magick", stdout=subprocess.PIPE).decode("utf-8'"))
+      raise os.error(f"Error while distorting frame {i}/{nbFrames}: " + cmdOutput + subprocess.run(["type", "magick"], shell=True, stdout=subprocess.PIPE).decode("utf-8'"))
   
   # Assembling frames back into a video
   #print('Creating video...')
