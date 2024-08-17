@@ -3,6 +3,9 @@ name: streamlit-environment
 dependencies:
   - ffmpeg
   - imagemagick
+  - pip
+  - python
+  - py-opencv
   - pip:
     - ffmpeg-python
     - opencv-python-headless
