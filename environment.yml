@@ -6,4 +6,5 @@ dependencies:
   - pip:
     - ffmpeg-python
     - opencv-python-headless
+    - opencv-contrib-python
     - streamlit
