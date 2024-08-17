@@ -1,0 +1,5 @@
+name: streamlit-environment
+
+dependencies:
+  - ffmpeg
+  - imagemagick
